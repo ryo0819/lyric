@@ -1,8 +1,10 @@
 import math
 import whisper
-import ssl
+import os
+import certifi
 
-ssl._create_default_https_context = ssl._create_unverified_context
+# 証明書の検証は無効にせず、certifi の証明書リストを使う
+os.environ.setdefault("SSL_CERT_FILE", certifi.where())
 # TODO
 output_filename = "output.lrc"
 
